@@ -1,28 +1,28 @@
-import { Link, useLocation } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  PlusCircle, 
-  Receipt, 
-  Settings, 
+import { Link, useLocation } from "react-router-dom";
+import {
+  LayoutDashboard,
+  PlusCircle,
+  Receipt,
+  Settings,
   User,
   TrendingUp,
   Wallet,
   Menu,
-  X
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useState } from 'react';
+  X,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-  { name: 'Add Expense', href: '/add-expense', icon: PlusCircle },
-  { name: 'Records', href: '/records', icon: Receipt },
-  { name: 'Analytics', href: '/analytics', icon: TrendingUp },
-  { name: 'Settings', href: '/settings', icon: Settings },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Add Expense", href: "/add-expense", icon: PlusCircle },
+  { name: "Records", href: "/records", icon: Receipt },
+  { name: "Analytics", href: "/analytics", icon: TrendingUp },
+  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export function Layout({ children }: LayoutProps) {
@@ -59,15 +59,17 @@ export function Layout({ children }: LayoutProps) {
                           to={item.href}
                           className={cn(
                             isActive
-                              ? 'gradient-primary text-white shadow-lg'
-                              : 'text-gray-700 hover:text-violet-600 hover:bg-violet-50',
-                            'group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-medium transition-all duration-200'
+                              ? "gradient-primary text-white shadow-lg"
+                              : "text-gray-700 hover:text-violet-600 hover:bg-violet-50",
+                            "group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-medium transition-all duration-200",
                           )}
                         >
                           <item.icon
                             className={cn(
-                              isActive ? 'text-white' : 'text-gray-400 group-hover:text-violet-600',
-                              'h-5 w-5 shrink-0'
+                              isActive
+                                ? "text-white"
+                                : "text-gray-400 group-hover:text-violet-600",
+                              "h-5 w-5 shrink-0",
                             )}
                             aria-hidden="true"
                           />
@@ -80,7 +82,7 @@ export function Layout({ children }: LayoutProps) {
               </li>
             </ul>
           </nav>
-          
+
           {/* User Profile Section */}
           <div className="mt-auto">
             <Link
@@ -125,7 +127,10 @@ export function Layout({ children }: LayoutProps) {
         {/* Mobile sidebar */}
         {mobileMenuOpen && (
           <div className="relative z-50 lg:hidden">
-            <div className="fixed inset-0 bg-gray-900/80" onClick={() => setMobileMenuOpen(false)} />
+            <div
+              className="fixed inset-0 bg-gray-900/80"
+              onClick={() => setMobileMenuOpen(false)}
+            />
             <div className="fixed inset-0 flex">
               <div className="relative mr-16 flex w-full max-w-xs flex-1">
                 <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
@@ -148,7 +153,9 @@ export function Layout({ children }: LayoutProps) {
                         <h1 className="text-xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
                           ExpenseTracker
                         </h1>
-                        <p className="text-xs text-gray-500">Smart Money Management</p>
+                        <p className="text-xs text-gray-500">
+                          Smart Money Management
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -165,15 +172,17 @@ export function Layout({ children }: LayoutProps) {
                                   onClick={() => setMobileMenuOpen(false)}
                                   className={cn(
                                     isActive
-                                      ? 'gradient-primary text-white shadow-lg'
-                                      : 'text-gray-700 hover:text-violet-600 hover:bg-violet-50',
-                                    'group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-medium transition-all duration-200'
+                                      ? "gradient-primary text-white shadow-lg"
+                                      : "text-gray-700 hover:text-violet-600 hover:bg-violet-50",
+                                    "group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-medium transition-all duration-200",
                                   )}
                                 >
                                   <item.icon
                                     className={cn(
-                                      isActive ? 'text-white' : 'text-gray-400 group-hover:text-violet-600',
-                                      'h-5 w-5 shrink-0'
+                                      isActive
+                                        ? "text-white"
+                                        : "text-gray-400 group-hover:text-violet-600",
+                                      "h-5 w-5 shrink-0",
                                     )}
                                     aria-hidden="true"
                                   />
@@ -195,9 +204,7 @@ export function Layout({ children }: LayoutProps) {
 
       <main className="lg:pl-72">
         <div className="xl:pl-96">
-          <div className="px-4 py-6 sm:px-6 lg:px-8">
-            {children}
-          </div>
+          <div className="px-4 py-6 sm:px-6 lg:px-8">{children}</div>
         </div>
       </main>
     </div>

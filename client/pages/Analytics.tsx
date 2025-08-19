@@ -1,5 +1,5 @@
-import { TrendingUp } from 'lucide-react';
-import { Placeholder } from '@/components/Placeholder';
+import { TrendingUp } from "lucide-react";
+import { Placeholder } from "@/components/Placeholder";
 
 export default function Analytics() {
   return (

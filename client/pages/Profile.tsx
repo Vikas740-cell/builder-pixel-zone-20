@@ -1,5 +1,5 @@
-import { User } from 'lucide-react';
-import { Placeholder } from '@/components/Placeholder';
+import { User } from "lucide-react";
+import { Placeholder } from "@/components/Placeholder";
 
 export default function Profile() {
   return (

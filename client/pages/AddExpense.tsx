@@ -1,5 +1,5 @@
-import { PlusCircle } from 'lucide-react';
-import { Placeholder } from '@/components/Placeholder';
+import { PlusCircle } from "lucide-react";
+import { Placeholder } from "@/components/Placeholder";
 
 export default function AddExpense() {
   return (

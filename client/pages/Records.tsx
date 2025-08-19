@@ -1,5 +1,5 @@
-import { Receipt } from 'lucide-react';
-import { Placeholder } from '@/components/Placeholder';
+import { Receipt } from "lucide-react";
+import { Placeholder } from "@/components/Placeholder";
 
 export default function Records() {
   return (

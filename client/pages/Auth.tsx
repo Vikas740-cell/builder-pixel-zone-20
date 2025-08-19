@@ -1,64 +1,75 @@
-import { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  Eye, 
-  EyeOff, 
+import { useState } from "react";
+import {
+  Mail,
+  Phone,
+  Eye,
+  EyeOff,
   Wallet,
   ArrowRight,
   Shield,
   Smartphone,
-  CheckCircle
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { cn } from '@/lib/utils';
+  CheckCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 export default function Auth() {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [authMethod, setAuthMethod] = useState<'email' | 'phone'>('email');
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [authMethod, setAuthMethod] = useState<"email" | "phone">("email");
 
   const features = [
     {
       icon: Shield,
-      title: 'Secure & Private',
-      description: 'Your financial data is encrypted and protected'
+      title: "Secure & Private",
+      description: "Your financial data is encrypted and protected",
     },
     {
       icon: Smartphone,
-      title: 'Mobile-First Design',
-      description: 'Access your expenses anywhere, anytime'
+      title: "Mobile-First Design",
+      description: "Access your expenses anywhere, anytime",
     },
     {
       icon: CheckCircle,
-      title: 'Smart Categorization',
-      description: 'AI-powered expense categorization and insights'
-    }
+      title: "Smart Categorization",
+      description: "AI-powered expense categorization and insights",
+    },
   ];
 
   const handleGoogleAuth = () => {
     // In a real app, this would integrate with Google OAuth
-    console.log('Google authentication would happen here');
+    console.log("Google authentication would happen here");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, this would handle authentication
-    console.log('Form submission:', { authMethod, email, phone, password, isSignUp });
+    console.log("Form submission:", {
+      authMethod,
+      email,
+      phone,
+      password,
+      isSignUp,
+    });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
         {/* Left Side - Branding & Features */}
         <div className="hidden lg:block space-y-8 animate-fade-in">
           <div className="space-y-4">
@@ -73,22 +84,23 @@ export default function Auth() {
                 <p className="text-gray-600">Smart Money Management</p>
               </div>
             </div>
-            
+
             <h2 className="text-4xl font-bold text-gray-900 leading-tight">
-              Take control of your{' '}
+              Take control of your{" "}
               <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
                 financial future
               </span>
             </h2>
             <p className="text-xl text-gray-600">
-              Track expenses, analyze spending patterns, and make smarter financial decisions with our AI-powered insights.
+              Track expenses, analyze spending patterns, and make smarter
+              financial decisions with our AI-powered insights.
             </p>
           </div>
 
           <div className="space-y-6">
             {features.map((feature, index) => (
-              <div 
-                key={feature.title} 
+              <div
+                key={feature.title}
                 className="flex items-start gap-4 animate-slide-in-left"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -96,7 +108,9 @@ export default function Auth() {
                   <feature.icon className="w-5 h-5 text-violet-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">{feature.title}</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               </div>
@@ -117,13 +131,12 @@ export default function Auth() {
                 </h1>
               </div>
               <CardTitle className="text-2xl font-bold text-gray-900">
-                {isSignUp ? 'Create Account' : 'Welcome Back'}
+                {isSignUp ? "Create Account" : "Welcome Back"}
               </CardTitle>
               <CardDescription className="text-gray-600">
-                {isSignUp 
-                  ? 'Start your journey to better financial management' 
-                  : 'Sign in to your account to continue'
-                }
+                {isSignUp
+                  ? "Start your journey to better financial management"
+                  : "Sign in to your account to continue"}
               </CardDescription>
             </CardHeader>
 
@@ -160,18 +173,31 @@ export default function Auth() {
                   <span className="w-full border-t border-gray-200" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-white px-2 text-gray-500">Or continue with</span>
+                  <span className="bg-white px-2 text-gray-500">
+                    Or continue with
+                  </span>
                 </div>
               </div>
 
               {/* Auth Method Tabs */}
-              <Tabs value={authMethod} onValueChange={(value) => setAuthMethod(value as 'email' | 'phone')}>
+              <Tabs
+                value={authMethod}
+                onValueChange={(value) =>
+                  setAuthMethod(value as "email" | "phone")
+                }
+              >
                 <TabsList className="grid w-full grid-cols-2 bg-gray-100">
-                  <TabsTrigger value="email" className="flex items-center gap-2">
+                  <TabsTrigger
+                    value="email"
+                    className="flex items-center gap-2"
+                  >
                     <Mail className="w-4 h-4" />
                     Email
                   </TabsTrigger>
-                  <TabsTrigger value="phone" className="flex items-center gap-2">
+                  <TabsTrigger
+                    value="phone"
+                    className="flex items-center gap-2"
+                  >
                     <Phone className="w-4 h-4" />
                     Phone
                   </TabsTrigger>
@@ -213,7 +239,7 @@ export default function Auth() {
                     <div className="relative">
                       <Input
                         id="password"
-                        type={showPassword ? 'text' : 'password'}
+                        type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -225,7 +251,11 @@ export default function Auth() {
                         onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                       >
-                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        {showPassword ? (
+                          <EyeOff className="w-4 h-4" />
+                        ) : (
+                          <Eye className="w-4 h-4" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -249,7 +279,7 @@ export default function Auth() {
                     type="submit"
                     className="w-full h-12 gradient-primary hover:opacity-90 transition-opacity text-white font-medium"
                   >
-                    {isSignUp ? 'Create Account' : 'Sign In'}
+                    {isSignUp ? "Create Account" : "Sign In"}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </form>
@@ -257,29 +287,38 @@ export default function Auth() {
 
               {!isSignUp && (
                 <div className="text-center">
-                  <Button variant="link" className="text-violet-600 hover:text-violet-700">
+                  <Button
+                    variant="link"
+                    className="text-violet-600 hover:text-violet-700"
+                  >
                     Forgot your password?
                   </Button>
                 </div>
               )}
 
               <div className="text-center text-sm text-gray-600">
-                {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
+                {isSignUp
+                  ? "Already have an account?"
+                  : "Don't have an account?"}{" "}
                 <button
                   type="button"
                   onClick={() => setIsSignUp(!isSignUp)}
                   className="text-violet-600 hover:text-violet-700 font-medium"
                 >
-                  {isSignUp ? 'Sign in' : 'Sign up'}
+                  {isSignUp ? "Sign in" : "Sign up"}
                 </button>
               </div>
 
               {isSignUp && (
                 <p className="text-xs text-gray-500 text-center">
-                  By creating an account, you agree to our{' '}
-                  <a href="#" className="text-violet-600 hover:underline">Terms of Service</a>
-                  {' '}and{' '}
-                  <a href="#" className="text-violet-600 hover:underline">Privacy Policy</a>
+                  By creating an account, you agree to our{" "}
+                  <a href="#" className="text-violet-600 hover:underline">
+                    Terms of Service
+                  </a>{" "}
+                  and{" "}
+                  <a href="#" className="text-violet-600 hover:underline">
+                    Privacy Policy
+                  </a>
                 </p>
               )}
             </CardContent>

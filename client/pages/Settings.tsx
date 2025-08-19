@@ -1,5 +1,5 @@
-import { Settings as SettingsIcon } from 'lucide-react';
-import { Placeholder } from '@/components/Placeholder';
+import { Settings as SettingsIcon } from "lucide-react";
+import { Placeholder } from "@/components/Placeholder";
 
 export default function Settings() {
   return (
